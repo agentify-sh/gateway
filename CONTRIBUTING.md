@@ -2,13 +2,12 @@
 
 Thank you for your interest in contributing to TensorZero!
 
+This repository is the Agentify-maintained community fork of TensorZero.
+The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
+Please target contributions at `agentify-sh/gateway` unless a maintainer says otherwise.
+
 TensorZero aims to power the next generation of AI applications.
 We'd love to collaborate with you to make this vision a reality.
-
-> [!TIP]
->
-> In addition to community contributions, we're also hiring in NYC (in-person only).
-> See our [open roles](https://www.tensorzero.com/jobs).
 
 ## License
 
@@ -17,27 +16,23 @@ By contributing to this repository, you agree to license your contributions unde
 
 ## Community & Support
 
-### Slack and Discord
-
-Join our community on [Slack](https://www.tensorzero.com/slack) or [Discord](https://www.tensorzero.com/discord) to chat with the team and other contributors.
-
 ### GitHub
 
 We use GitHub Issues to track bugs and feature requests.
-For general questions, technical support, and conversations not directly related to code, please use GitHub Discussions.
+For general questions, technical support, and conversations not directly related to code, please open an issue and use the `question` label.
 
 ## Contributions
 
 > [!TIP]
 >
-> See the [`good-first-issue`](https://github.com/tensorzero/tensorzero/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) label for simpler issues that might be a good starting point for new contributors.
+> See the [`good-first-issue`](https://github.com/agentify-sh/gateway/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) label for simpler issues that might be a good starting point for new contributors.
 
 ### Code
 
 For small changes (i.e. a few lines of code), feel free to open a PR directly.
 
 For larger changes, please communicate with us first to avoid duplicate work or wasted effort.
-You can start a discussion (GitHub, Slack, or Discord) or open an issue as a starting point.
+Open an issue as a starting point.
 The team will be happy to provide feedback and guidance.
 
 At this time, we don't assign issues to new external contributors (in the past, most people we assigned issues to never submitted a PR).
@@ -54,7 +49,7 @@ The content for our documentation lives in the `docs/` directory.
 For small changes (e.g. typos), feel free to open a PR directly.
 
 For larger changes, please communicate with us first to avoid duplicate work or wasted effort.
-You can start a discussion (GitHub, Slack, or Discord) or open an issue as a starting point.
+Open an issue as a starting point.
 
 ### Content — Examples, Tutorials, etc.
 
@@ -63,7 +58,7 @@ We'd love to collaborate on examples, tutorials, and other content that showcase
 For content contributed directly to our repository, please follow the same process as code contributions.
 
 For external content (e.g. blog posts, videos, social media content), we're excited to support and amplify your work.
-Share your content in our community channels (Slack and Discord), tag us on social media, or reach out if you'd like technical review or feedback before publishing.
+Open an issue if you'd like technical review or feedback before publishing.
 
 We're happy to provide guidance and support for both types of content to help you create high-quality resources for the TensorZero community.
 
@@ -74,11 +69,11 @@ Reach out if you're interested in collaborating.
 
 ### Security
 
-If you discover a security vulnerability, please email us at [security@tensorzero.com](mailto:security@tensorzero.com).
+If you discover a security vulnerability, please follow [SECURITY.md](SECURITY.md).
 
 ### Other
 
-Did you have something else in mind? Reach out on Slack or Discord and let us know.
+Did you have something else in mind? Open an issue and let us know.
 
 ---
 
@@ -230,8 +225,8 @@ For internal contributors with access to the autopilot repository, see `ui/AGENT
 ### Advanced
 
 - To test batch and optimization workflows without real provider APIs, spin up the `mock-provider-api` and set `TENSORZERO_INTERNAL_MOCK_PROVIDER_API=http://localhost:3030` when running the gateway.
-- If your code affects the serialization of stored data, batch tests might fail because they'll rely on an older serialization of the request. In such cases, you might need to clear the database and re-run the tests. The TensorZero Team can clean up the cache by running `TRUNCATE TABLE tensorzero_e2e_tests.BatchModelInference; TRUNCATE TABLE tensorzero_e2e_tests.BatchRequest;` in the ClickHouse Cloud cluster `dev-tensorzero-e2e-tests`.
+- If your code affects the serialization of stored data, batch tests might fail because they'll rely on an older serialization of the request. In such cases, maintainers may need to refresh the shared test data before re-running the tests.
 
 ---
 
-Thanks again for your interest in contributing to TensorZero! We're excited to see what you build.
+Thanks again for your interest in contributing to TensorZero.

@@ -1,15 +1,13 @@
 ---
-name: For maintainers only
-about: Only for topics already discussed and approved in the GitHub Discussions section.
+name: Maintenance task
+about: Track repository maintenance work for the Agentify-maintained TensorZero fork.
 labels: needs-triage
 ---
 
-<!--
+## Task
 
-Please use GitHub discussions to:
+<!-- What maintenance work is needed? -->
 
-- **[Submit a feature request](https://github.com/tensorzero/tensorzero/discussions/new?category=feature-requests)**
-- **[Report a bug](https://github.com/tensorzero/tensorzero/discussions/new?category=bug-reports)**
-- **[Ask for help](https://github.com/tensorzero/tensorzero/discussions/new?category=help)**
+## Notes
 
--->
+<!-- Link related issues, upstream context, or release blockers. -->

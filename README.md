@@ -2,7 +2,11 @@
 
 # TensorZero
 
-<p><picture><img src="https://www.tensorzero.com/github-trending-badge.svg" alt="GitHub Trending - #1 Repository Of The Day"></picture></p>
+> [!IMPORTANT]
+>
+> This repository is the Agentify-maintained community fork of TensorZero.
+> The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
+> This fork preserves the Apache-2.0 licensed source history and upstream attribution while maintenance continues under `agentify-sh/gateway`.
 
 **TensorZero is an open-source LLMOps platform that unifies:**
 
@@ -15,29 +19,27 @@
 You can take what you need, adopt incrementally, and complement with other tools.
 It plays nicely with the **OpenAI SDK**, **OpenTelemetry**, and **every major LLM provider**.
 
-TensorZero is used by companies ranging from frontier AI startups to the Fortune 10 and fuels ~1% of global LLM API spend today.
+Before archival, upstream reported TensorZero usage by companies ranging from frontier AI startups to the Fortune 10.
 
 <br>
 
 <p align="center">
-  <b><a href="https://www.tensorzero.com/" target="_blank">Website</a></b>
+  <b><a href="https://github.com/agentify-sh/gateway" target="_blank">Repository</a></b>
   ·
-  <b><a href="https://www.tensorzero.com/docs" target="_blank">Docs</a></b>
+  <b><a href="https://github.com/agentify-sh/gateway/issues" target="_blank">Issues</a></b>
   ·
-  <b><a href="https://www.x.com/tensorzero" target="_blank">Twitter</a></b>
+  <b><a href="https://github.com/agentify-sh/gateway/security" target="_blank">Security</a></b>
   ·
-  <b><a href="https://www.tensorzero.com/slack" target="_blank">Slack</a></b>
-  ·
-  <b><a href="https://www.tensorzero.com/discord" target="_blank">Discord</a></b>
+  <b><a href="https://www.tensorzero.com/docs" target="_blank">Upstream Docs</a></b>
   <br>
   <br>
-  <b><a href="https://www.tensorzero.com/docs/quickstart" target="_blank">Quick Start (5min)</a></b>
+  <b><a href="docs/quickstart.mdx">Quick Start (5min)</a></b>
   ·
-  <b><a href="https://www.tensorzero.com/docs/deployment/tensorzero-gateway" target="_blank">Deployment Guide</a></b>
+  <b><a href="docs/deployment/tensorzero-gateway.mdx">Deployment Guide</a></b>
   ·
-  <b><a href="https://www.tensorzero.com/docs/gateway/api-reference" target="_blank">API Reference</a></b>
+  <b><a href="docs/gateway/api-reference/inference.mdx">API Reference</a></b>
   ·
-  <b><a href="https://www.tensorzero.com/docs/gateway/configuration-reference" target="_blank">Configuration Reference</a></b>
+  <b><a href="docs/gateway/configuration-reference.mdx">Configuration Reference</a></b>
 </p>
 
 ## Demo
@@ -49,6 +51,8 @@ TensorZero is used by companies ranging from frontier AI startups to the Fortune
 > [!NOTE]
 >
 > ### 🆕 TensorZero Autopilot
+>
+> TensorZero Autopilot was an upstream complementary service. This community fork does not currently operate or maintain the closed-source Autopilot service.
 >
 > TensorZero Autopilot is an **automated AI engineer** powered by TensorZero that analyzes LLM observability data, sets up evals, optimizes prompts and models, and runs A/B tests.
 >
@@ -210,7 +214,7 @@ It plays nicely with the **OpenAI SDK**, **OpenTelemetry**, and **every major LL
 **Is TensorZero production-ready?**
 
 Yes.
-TensorZero is used by companies ranging from frontier AI startups to the Fortune 10 and powers ~1% of the global LLM API spend today.
+Before archival, upstream reported TensorZero usage by companies ranging from frontier AI startups to the Fortune 10.
 
 Here's a case study: **[Automating Code Changelogs at a Large Bank with LLMs](https://www.tensorzero.com/blog/case-study-automating-code-changelogs-at-a-large-bank-with-llms)**
 
@@ -222,56 +226,58 @@ TensorZero Autopilot (automated AI engineer) is a complementary paid product pow
 
 **Who is building TensorZero?**
 
-Our technical team includes a former Rust compiler maintainer, machine learning researchers (Stanford, CMU, Oxford, Columbia) with thousands of citations, and the chief product officer of a decacorn startup. We're backed by the same investors as leading open-source projects (e.g. ClickHouse, CockroachDB) and AI labs (e.g. OpenAI, Anthropic). See our **[$7.3M seed round announcement](https://www.tensorzero.com/blog/tensorzero-raises-7-3m-seed-round-to-build-an-open-source-stack-for-industrial-grade-llm-applications/)** and **[coverage from VentureBeat](https://venturebeat.com/ai/tensorzero-nabs-7-3m-seed-to-solve-the-messy-world-of-enterprise-llm-development/)**. We're **[hiring in NYC](https://www.tensorzero.com/jobs)**.
+TensorZero was originally built by the upstream TensorZero team.
+This repository is now maintained as a community fork by Agentify.
+See [MAINTAINERS.md](MAINTAINERS.md) for the current maintenance model.
 
 **How do I get started?**
 
-You can adopt TensorZero incrementally. Our **[Quick Start](https://www.tensorzero.com/docs/quickstart)** goes from a vanilla OpenAI wrapper to a production-ready LLM application with observability and fine-tuning in just 5 minutes.
+You can adopt TensorZero incrementally. The **[Quick Start](docs/quickstart.mdx)** goes from a vanilla OpenAI wrapper to a production-ready LLM application with observability and fine-tuning in just 5 minutes.
 
 ## Get Started
 
 **Start building today.**
-The **[Quick Start](https://www.tensorzero.com/docs/quickstart)** shows it's easy to set up an LLM application with TensorZero.
+The **[Quick Start](docs/quickstart.mdx)** shows it's easy to set up an LLM application with TensorZero.
 
 **Questions?**
-Ask us on **[Slack](https://www.tensorzero.com/slack)** or **[Discord](https://www.tensorzero.com/discord)**.
+Open a GitHub issue in this repository.
 
 **Using TensorZero at work?**
-Email us at **[hello@tensorzero.com](mailto:hello@tensorzero.com)** to set up a Slack or Teams channel with your team (free).
+See [SECURITY.md](SECURITY.md) for vulnerability reporting and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Examples
 
-We are working on a series of **complete runnable examples** illustrating TensorZero's data & learning flywheel.
+This repository includes **complete runnable examples** illustrating TensorZero's data & learning flywheel.
 
-> **[Optimizing Data Extraction (NER) with TensorZero](https://github.com/tensorzero/tensorzero/tree/main/examples/data-extraction-ner)**
+> **[Optimizing Data Extraction (NER) with TensorZero](https://github.com/agentify-sh/gateway/tree/main/examples/data-extraction-ner)**
 >
 > This example shows how to use TensorZero to optimize a data extraction pipeline.
 > We demonstrate techniques like fine-tuning and dynamic in-context learning (DICL).
 > In the end, an optimized GPT-4o Mini model outperforms GPT-4o on this task &mdash; at a fraction of the cost and latency &mdash; using a small amount of training data.
 
-> **[Agentic RAG — Multi-Hop Question Answering with LLMs](https://github.com/tensorzero/tensorzero/tree/main/examples/rag-retrieval-augmented-generation/simple-agentic-rag/)**
+> **[Agentic RAG — Multi-Hop Question Answering with LLMs](https://github.com/agentify-sh/gateway/tree/main/examples/rag-retrieval-augmented-generation/simple-agentic-rag/)**
 >
 > This example shows how to build a multi-hop retrieval agent using TensorZero.
 > The agent iteratively searches Wikipedia to gather information, and decides when it has enough context to answer a complex question.
 
-> **[Writing Haikus to Satisfy a Judge with Hidden Preferences](https://github.com/tensorzero/tensorzero/tree/main/examples/haiku-hidden-preferences)**
+> **[Writing Haikus to Satisfy a Judge with Hidden Preferences](https://github.com/agentify-sh/gateway/tree/main/examples/haiku-hidden-preferences)**
 >
 > This example fine-tunes GPT-4o Mini to generate haikus tailored to a specific taste.
 > You'll see TensorZero's "data flywheel in a box" in action: better variants leads to better data, and better data leads to better variants.
 > You'll see progress by fine-tuning the LLM multiple times.
 
-> **[Image Data Extraction — Multimodal (Vision) Fine-tuning](https://github.com/tensorzero/tensorzero/tree/main/examples/multimodal-vision-finetuning)**
+> **[Image Data Extraction — Multimodal (Vision) Fine-tuning](https://github.com/agentify-sh/gateway/tree/main/examples/multimodal-vision-finetuning)**
 >
 > This example shows how to fine-tune multimodal models (VLMs) like GPT-4o to improve their performance on vision-language tasks.
 > Specifically, we'll build a system that categorizes document images (screenshots of computer science research papers).
 
-> **[Improving LLM Chess Ability with Best-of-N Sampling](https://github.com/tensorzero/tensorzero/tree/main/examples/chess-puzzles/)**
+> **[Improving LLM Chess Ability with Best-of-N Sampling](https://github.com/agentify-sh/gateway/tree/main/examples/chess-puzzles/)**
 >
 > This example showcases how best-of-N sampling can significantly enhance an LLM's chess-playing abilities by selecting the most promising moves from multiple generated options.
 
 ## Blog Posts
 
-We write about LLM engineering on the **[TensorZero Blog](https://www.tensorzero.com/blog)**.
+The upstream TensorZero team wrote about LLM engineering on the **[TensorZero Blog](https://www.tensorzero.com/blog)**.
 Here are some of our favorite posts:
 
 - **[Bandits in your LLM Gateway: Improve LLM Applications Faster with Adaptive Experimentation (A/B Testing)](https://www.tensorzero.com/blog/bandits-in-your-llm-gateway/)**

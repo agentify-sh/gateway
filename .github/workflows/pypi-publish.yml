@@ -18,7 +18,8 @@ concurrency:
 
 jobs:
   build-wheels:
-    if: github.repository == 'tensorzero/tensorzero'
+    # Disabled until Agentify PyPI package ownership and release secrets are configured.
+    if: false
     uses: ./.github/workflows/python-client-build.yml
     with:
       use_cache: false
@@ -27,7 +28,8 @@ jobs:
       id-token: write # Required for OIDC-backed build or publish tooling.
 
   release:
-    if: github.repository == 'tensorzero/tensorzero'
+    # Disabled until Agentify PyPI package ownership and release secrets are configured.
+    if: false
     name: Release
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -63,7 +65,8 @@ jobs:
         continue-on-error: ${{ github.event_name == 'release' }}
 
   upgrade-tensorzero-deps:
-    if: github.repository == 'tensorzero/tensorzero' && github.event_name == 'release'
+    # Disabled until Agentify PyPI package ownership and release workflow are configured.
+    if: false
     needs: [release]
     uses: ./.github/workflows/upgrade-tensorzero-deps.yml
     permissions:

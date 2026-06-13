@@ -16,7 +16,7 @@ jobs:
     name: Check merge queue workflows and cancel on failure
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway'
     permissions:
       actions: write # Required to approve, cancel, rerun, or dispatch workflow runs.
       contents: read # Required for checkout or repository metadata reads.

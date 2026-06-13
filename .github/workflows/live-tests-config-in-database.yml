@@ -115,7 +115,7 @@ env:
 
 jobs:
   live-tests-config-in-database:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     name: "live-tests-config-in-database"
     runs-on: ubuntu-latest
     permissions:

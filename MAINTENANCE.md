@@ -12,7 +12,11 @@ The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 an
 - [ ] Configure branch protection for `main`.
 - [ ] Decide whether GitHub Discussions should be enabled.
 - [ ] Replace upstream CODEOWNERS with Agentify-owned teams or maintainers.
-- [ ] Audit GitHub Actions that are gated to `tensorzero/tensorzero`.
+- [x] Audit GitHub Actions that are gated to `tensorzero/tensorzero`.
+- [ ] Configure Agentify container publishing for CI images.
+- [ ] Set `ENABLE_DOCKER_CI=true` after Agentify container publishing is configured.
+- [ ] Set `ENABLE_LIVE_PROVIDER_CRONS=true` after live-provider secrets are configured.
+- [ ] Configure Agentify release publishing for Docker, PyPI, and Helm artifacts.
 - [ ] Decide package and container publishing namespaces.
 - [ ] Run a full baseline build and test pass.
 - [ ] Publish a no-feature custody release from `agentify-sh/gateway`.
@@ -40,7 +44,10 @@ Open transition work:
 - enable private vulnerability reporting
 - configure branch protection for `main`
 - replace upstream CODEOWNERS entries with Agentify owners
-- audit GitHub Actions gated to `tensorzero/tensorzero`
+- configure Agentify container publishing for CI images
+- set `ENABLE_DOCKER_CI=true` after Agentify container publishing is configured
+- configure live-provider cron secrets before setting `ENABLE_LIVE_PROVIDER_CRONS=true`
+- configure Agentify release publishing for Docker, PyPI, and Helm artifacts
 - decide package, Docker, Helm, and docs publishing namespaces
 - cut the first no-feature custody release
 

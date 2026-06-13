@@ -13,7 +13,7 @@ jobs:
     name: build-mock-provider-api-container
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     permissions:
       # Permission to checkout the repository
       contents: read # Required for checkout or repository metadata reads.

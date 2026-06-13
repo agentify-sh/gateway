@@ -25,12 +25,12 @@ concurrency:
 
 jobs:
   check-python-client-build:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway'
     uses: ./.github/workflows/python-client-build.yml
 
   build-gateway:
     name: build-gateway
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway'
     strategy:
       matrix:
         runner:

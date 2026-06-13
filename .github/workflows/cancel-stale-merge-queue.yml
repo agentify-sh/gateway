@@ -15,7 +15,7 @@ jobs:
     name: Cancel Workflow Runs
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    if: github.repository == 'tensorzero/tensorzero' && github.event.reason != 'merged'
+    if: github.repository == 'agentify-sh/gateway' && github.event.reason != 'merged'
     permissions:
       actions: write # Required to approve, cancel, rerun, or dispatch workflow runs.
       contents: read # Required for checkout or repository metadata reads.

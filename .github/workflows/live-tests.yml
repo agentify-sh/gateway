@@ -109,7 +109,7 @@ env:
 
 jobs:
   live-tests:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     name: "live-tests (batch_writes: ${{ matrix.batch_writes }}, database: ${{ matrix.database }})"
     runs-on: ubuntu-latest
     permissions:
@@ -246,7 +246,7 @@ jobs:
   # so they don't need the external gateway service — just the database infrastructure
   # and provider-proxy for LLM judge calls.
   evaluation-tests:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     name: "evaluation-tests (database: ${{ matrix.database }})"
     runs-on: ubuntu-latest
     permissions:

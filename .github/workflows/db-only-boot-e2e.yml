@@ -30,7 +30,7 @@ env:
 
 jobs:
   db-only-boot-e2e:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     # Run the zero-config scenario in both observability modes: with
     # ClickHouse as the data backend (default) and with Postgres as
     # the data backend (single-datastore deploy). Config always lives

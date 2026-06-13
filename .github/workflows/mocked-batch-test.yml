@@ -52,7 +52,7 @@ jobs:
   mocked-batch-tests:
     name: mocked-batch-tests
     runs-on: ubuntu-latest
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
 
     timeout-minutes: 30
 

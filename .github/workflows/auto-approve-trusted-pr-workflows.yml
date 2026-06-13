@@ -15,7 +15,7 @@ concurrency:
 jobs:
   auto-approve-workflows:
     name: auto-approve-workflows
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

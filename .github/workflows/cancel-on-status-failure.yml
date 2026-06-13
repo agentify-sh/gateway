@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     if: |
-      github.repository == 'tensorzero/tensorzero' && (
+      github.repository == 'agentify-sh/gateway' && (
         (github.event_name == 'status' && (github.event.state == 'failure' || github.event.state == 'error'))
       )
     permissions:

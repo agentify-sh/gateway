@@ -16,7 +16,7 @@ jobs:
     name: slashCommandDispatch
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway'
     permissions:
       pull-requests: write # For doing the emoji reaction on a PR comment
       issues: write # For doing the emoji reaction on an issue comment
@@ -28,7 +28,7 @@ jobs:
           ACTOR: ${{ github.actor }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          MEMBER=$((gh api "orgs/tensorzero/members/$ACTOR" && echo 1) || echo 0)
+          MEMBER=$((gh api "orgs/agentify-sh/members/$ACTOR" && echo 1) || echo 0)
           echo "ACTOR_MEMBER=$MEMBER" >> $GITHUB_OUTPUT
 
       - name: Leave a comment if permission check fails for a slash command

@@ -18,7 +18,8 @@ jobs:
     name: Upgrade TensorZero dependencies across all projects
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.repository == 'tensorzero/tensorzero'
+    # Disabled until Agentify package publishing is configured.
+    if: false
 
     permissions:
       contents: write # Required to push generated branch changes.

@@ -26,7 +26,7 @@ env:
 
 jobs:
   cache-tests:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     name: "cache-tests (backend: ${{ matrix.cache_backend }})"
     runs-on: ubuntu-latest
     permissions:

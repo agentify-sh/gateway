@@ -75,7 +75,7 @@ jobs:
   check-version-consistency:
     name: check-version-consistency
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
@@ -136,7 +136,7 @@ jobs:
 
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -179,7 +179,7 @@ jobs:
   check-docker-compose-released:
     name: check-docker-compose-released
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && needs.detect-changes.outputs.code == 'true'
     permissions:
       # Permission to checkout the repository
       contents: read # Required for checkout or repository metadata reads.
@@ -235,7 +235,7 @@ jobs:
   check-node-bindings:
     name: check-node-bindings
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       # Permission to upload artifacts
@@ -302,7 +302,7 @@ jobs:
   check-python-schemas:
     name: check-python-schemas
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
@@ -356,7 +356,7 @@ jobs:
   build-windows:
     name: build-windows
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       # Permission for rust-cache to read/write cache
@@ -713,7 +713,7 @@ jobs:
   validate:
     name: validate
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
@@ -917,7 +917,7 @@ jobs:
   cargo-deny:
     name: cargo-deny
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.code == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.code == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
@@ -1185,7 +1185,7 @@ jobs:
     needs: [build-gateway-container, build-fixtures-container]
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    if: github.repository == 'tensorzero/tensorzero' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
     env:
       OPENAI_API_KEY: not_used
       FIREWORKS_API_KEY: not_used
@@ -1413,7 +1413,7 @@ jobs:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.repository == 'tensorzero/tensorzero' && github.event_name == 'merge_group'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && github.event_name == 'merge_group'
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -1645,7 +1645,7 @@ jobs:
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       actions: read # Required to read workflow run, cache, or artifact metadata.
-    if: github.repository == 'tensorzero/tensorzero' && github.event_name == 'merge_group'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && github.event_name == 'merge_group'
     uses: ./.github/workflows/mocked-batch-test.yml
     needs: [build-gateway-container, build-mock-provider-api-container]
     secrets:
@@ -1656,7 +1656,7 @@ jobs:
   check-docs-broken-links:
     name: check-docs-broken-links
     needs: [detect-changes]
-    if: github.repository == 'tensorzero/tensorzero' && needs.detect-changes.outputs.docs == 'true'
+    if: github.repository == 'agentify-sh/gateway' && needs.detect-changes.outputs.docs == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
     runs-on: ubuntu-latest
@@ -1713,7 +1713,7 @@ jobs:
     permissions:
       actions: read # Required to read workflow run, cache, or artifact metadata.
       contents: read # Required for checkout or repository metadata reads.
-    if: always() && github.repository == 'tensorzero/tensorzero'
+    if: always() && github.repository == 'agentify-sh/gateway'
     needs:
       [
         detect-changes,

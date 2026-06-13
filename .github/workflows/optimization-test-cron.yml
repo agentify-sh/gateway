@@ -32,7 +32,7 @@ concurrency:
 jobs:
   optimization-tests:
     name: optimization-tests
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_LIVE_PROVIDER_CRONS == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 90
 

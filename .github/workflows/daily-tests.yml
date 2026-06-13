@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   live-tests:
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_LIVE_PROVIDER_CRONS == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       actions: read # Required to read workflow run, cache, or artifact metadata.
@@ -52,6 +53,7 @@ jobs:
       XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
 
   client-tests:
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_LIVE_PROVIDER_CRONS == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       actions: read # Required to read workflow run, cache, or artifact metadata.
@@ -88,7 +90,7 @@ jobs:
       XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
 
   live-batch-tests:
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_LIVE_PROVIDER_CRONS == 'true'
     permissions:
       contents: read # Required for checkout or repository metadata reads.
       actions: read # Required to read workflow run, cache, or artifact metadata.
@@ -124,7 +126,7 @@ jobs:
   notify-on-failure:
     name: notify-on-failure
     permissions: {}
-    if: always() && github.event_name == 'schedule' && (needs.live-tests.result != 'success' || needs.client-tests.result != 'success' || needs.live-batch-tests.result != 'success')
+    if: always() && github.event_name == 'schedule' && vars.ENABLE_LIVE_PROVIDER_CRONS == 'true' && (needs.live-tests.result != 'success' || needs.client-tests.result != 'success' || needs.live-batch-tests.result != 'success')
     needs: [live-tests, client-tests, live-batch-tests]
     runs-on: ubuntu-latest
     timeout-minutes: 5

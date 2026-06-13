@@ -41,7 +41,7 @@ jobs:
     name: ui-tests-no-network
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: github.repository == 'tensorzero/tensorzero'
+    if: github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true'
     steps:
       - name: Set DNS
         run: echo "127.0.0.1 howdy.tensorzero.com" | sudo tee -a /etc/hosts
@@ -371,7 +371,7 @@ jobs:
     name: ui-tests-e2e-main (${{ matrix.auth_mode }})
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    if: ${{ github.repository == 'tensorzero/tensorzero' && ((github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]') || inputs.is_merge_group) }}
+    if: ${{ github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && ((github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]') || inputs.is_merge_group) }}
 
     strategy:
       matrix:
@@ -636,7 +636,7 @@ jobs:
     name: ui-tests-e2e-config-editing
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    if: ${{ github.repository == 'tensorzero/tensorzero' && ((github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]') || inputs.is_merge_group) }}
+    if: ${{ github.repository == 'agentify-sh/gateway' && vars.ENABLE_DOCKER_CI == 'true' && ((github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]') || inputs.is_merge_group) }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2

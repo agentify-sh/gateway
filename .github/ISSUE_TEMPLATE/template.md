@@ -1,6 +1,6 @@
 ---
 name: Maintenance task
-about: Track repository maintenance work for the Agentify-maintained TensorZero fork.
+about: Track repository maintenance work for Agentify Gateway.
 labels: needs-triage
 ---
 

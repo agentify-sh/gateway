@@ -1,16 +1,16 @@
-# TensorZero UI
+# Agentify Gateway UI
 
-The TensorZero UI provides a web interface to help manage your TensorZero deployments.
+The Agentify Gateway UI provides a web interface to help manage your gateway deployments.
 The UI provides functionality for observability, optimization, and more.
 
 ## Running the UI
 
-The easiest way to run the UI is to use the `tensorzero/ui` Docker image.
-See the [Quick Start](https://www.tensorzero.com/docs/quickstart/) and the [TensorZero UI Deployment Guide](https://www.tensorzero.com/docs/ui/deployment/) for more information.
+The easiest way to run the UI is to use the current compatible `tensorzero/ui` Docker image.
+See the local [Quick Start](../docs/quickstart.mdx) and deployment docs for more information.
 
 ## Development Setup
 
-Follow the instructions from [`CONTRIBUTING.md`](../CONTRIBUTING.md#tensorzero-ui) to set up your development environment.
+Follow the instructions from [`CONTRIBUTING.md`](../CONTRIBUTING.md#agentify-gateway-ui) to set up your development environment.
 
 ## Things to note
 

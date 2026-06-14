@@ -1,6 +1,7 @@
-# TensorZero Docs
+# Agentify Gateway Docs
 
-TensorZero uses [Mintlify](https://mintlify.com) for its documentation.
+Agentify Gateway uses [Mintlify](https://mintlify.com) for its documentation.
+Some generated documentation paths and examples still use upstream TensorZero names for compatibility.
 
 ## Setup
 

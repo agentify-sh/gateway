@@ -1,12 +1,13 @@
-# Maintenance Transition
+# Agentify Gateway Maintenance Transition
 
-This repository is the Agentify-maintained community fork of TensorZero.
+This repository is derived from the archived TensorZero project and maintained by Agentify.
 The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
 
 ## Immediate priorities
 
 - [x] Preserve source history and Apache-2.0 attribution.
-- [x] Mark this repository as the maintained community fork.
+- [x] Mark this repository as the maintained Agentify Gateway continuation.
+- [x] Replace the top-level README branding and logo.
 - [x] Replace upstream-only security and support contacts.
 - [ ] Enable GitHub private vulnerability reporting.
 - [ ] Configure branch protection for `main`.
@@ -23,12 +24,12 @@ The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 an
 
 ## Suggested pinned issue body
 
-Title: `TensorZero maintenance transition`
+Title: `Agentify Gateway maintenance transition`
 
 Body:
 
 ```markdown
-This repository is the Agentify-maintained community fork of TensorZero.
+This repository is derived from the archived TensorZero project and maintained by Agentify.
 The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
 
 Initial maintenance scope:

@@ -1,17 +1,17 @@
-# Contributing to TensorZero
+# Contributing to Agentify Gateway
 
-Thank you for your interest in contributing to TensorZero!
+Thank you for your interest in contributing to Agentify Gateway.
 
-This repository is the Agentify-maintained community fork of TensorZero.
+This repository is derived from the archived TensorZero project.
 The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
 Please target contributions at `agentify-sh/gateway` unless a maintainer says otherwise.
 
-TensorZero aims to power the next generation of AI applications.
+Agentify Gateway aims to provide a practical, open-source LLM gateway and LLMOps stack.
 We'd love to collaborate with you to make this vision a reality.
 
 ## License
 
-TensorZero is licensed under the [Apache 2.0 license](LICENSE).
+Agentify Gateway is licensed under the [Apache 2.0 license](LICENSE).
 By contributing to this repository, you agree to license your contributions under the same license.
 
 ## Community & Support
@@ -40,7 +40,7 @@ Please submit a PR directly once you're ready to start working on an issue.
 
 > [!TIP]
 >
-> See the "Technical Guide" section below for more details on building and testing TensorZero.
+> See the "Technical Guide" section below for more details on building and testing Agentify Gateway.
 
 ### Documentation
 
@@ -53,14 +53,14 @@ Open an issue as a starting point.
 
 ### Content — Examples, Tutorials, etc.
 
-We'd love to collaborate on examples, tutorials, and other content that showcases how to build AI applications with TensorZero.
+We'd love to collaborate on examples, tutorials, and other content that showcases how to build AI applications with Agentify Gateway.
 
 For content contributed directly to our repository, please follow the same process as code contributions.
 
 For external content (e.g. blog posts, videos, social media content), we're excited to support and amplify your work.
 Open an issue if you'd like technical review or feedback before publishing.
 
-We're happy to provide guidance and support for both types of content to help you create high-quality resources for the TensorZero community.
+We're happy to provide guidance and support for both types of content to help you create high-quality resources for the Agentify Gateway community.
 
 ### Integrations
 
@@ -111,7 +111,7 @@ cargo test-unit
    docker compose -f crates/tensorzero-core/tests/e2e/docker-compose.yml up --wait
    ```
 
-2. Set the relevant environment variables (`TENSORZERO_CLICKHOUSE_URL` and model provider API keys like `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, etc.). See the [credential docs](https://www.tensorzero.com/docs/deployment/tensorzero-gateway#set-up-model-provider-credentials) for the full list.
+2. Set the relevant environment variables (`TENSORZERO_CLICKHOUSE_URL` and model provider API keys like `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, etc.). See the [credential docs](docs/deployment/tensorzero-gateway.mdx#set-up-model-provider-credentials) for the full list.
 
 3. Launch the gateway in testing mode
 
@@ -138,7 +138,7 @@ cargo test-unit
    docker compose -f crates/tensorzero-core/tests/e2e/docker-compose.yml up --wait
    ```
 
-2. Set the relevant environment variables (`TENSORZERO_CLICKHOUSE_URL` and model provider API keys like `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, etc.). See the [credential docs](https://www.tensorzero.com/docs/deployment/tensorzero-gateway#set-up-model-provider-credentials) for the full list.
+2. Set the relevant environment variables (`TENSORZERO_CLICKHOUSE_URL` and model provider API keys like `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, etc.). See the [credential docs](docs/deployment/tensorzero-gateway.mdx#set-up-model-provider-credentials) for the full list.
 
 3. Launch the gateway in testing mode
 
@@ -184,16 +184,16 @@ cargo test-unit
    uv run ruff check --output-format=github --extend-select I .
    ```
 
-#### TensorZero UI
+#### Agentify Gateway UI
 
-The UI depends on ClickHouse and other TensorZero components.
-For development, we recommend running the TensorZero Gateway and ClickHouse as containers.
+The UI depends on ClickHouse and other gateway components.
+For development, we recommend running the gateway and ClickHouse as containers.
 We also provide fixtures in `ui/fixtures/`.
 
 To set it up, follow these steps from the repository's root directory:
 
 1. Install dependencies: `pnpm install`
-2. Build the internal N-API client for TensorZero using `pnpm -r build`. If you have changed your Rust code, you may also have to run `pnpm build-bindings`.
+2. Build the internal N-API client using `pnpm -r build`. If you have changed your Rust code, you may also have to run `pnpm build-bindings`.
 3. Create a `ui/fixtures/.env` following the `ui/fixtures/.env.example`.
 4. Create a `ui/.env` following the `ui/.env.example`, or set the environment variables from that file in your shell before running the dev script.
 5. Launch the dependencies:
@@ -229,4 +229,4 @@ For internal contributors with access to the autopilot repository, see `ui/AGENT
 
 ---
 
-Thanks again for your interest in contributing to TensorZero.
+Thanks again for your interest in contributing to Agentify Gateway.

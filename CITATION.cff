@@ -1,15 +1,20 @@
 cff-version: 1.2.0
-title: TensorZero
+title: Agentify Gateway
 message: "If you use this software, please cite it as below."
 type: software
 authors:
-  - name: TensorZero Team
-    email: hello@tensorzero.com
-    website: "https://www.tensorzero.com"
-repository-code: "https://github.com/tensorzero/tensorzero"
-url: "https://www.tensorzero.com/"
+  - name: Agentify
+    email: team@agentify.sh
+repository-code: "https://github.com/agentify-sh/gateway"
+url: "https://github.com/agentify-sh/gateway"
 license: Apache-2.0
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.13749006
-date-released: "2024-09-09"
+references:
+  - type: software
+    title: TensorZero
+    authors:
+      - name: TensorZero Team
+    repository-code: "https://github.com/tensorzero/tensorzero"
+    url: "https://www.tensorzero.com/"
+    identifiers:
+      - type: doi
+        value: 10.5281/zenodo.13749006

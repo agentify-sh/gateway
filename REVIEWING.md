@@ -1,4 +1,4 @@
-# Reviewing PRs at TensorZero
+# Reviewing PRs for Agentify Gateway
 
 We require a code review of every PR to the repository.
 Code review itself is an important part of the engineering process and should allow us to catch issues with correctness, developer experience, and conformance to a spec.

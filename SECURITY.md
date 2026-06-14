@@ -1,11 +1,11 @@
 # Security Policy
 
-This repository is the Agentify-maintained community fork of TensorZero.
+This repository is derived from the archived TensorZero project and maintained by Agentify.
 The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
 
 ## Update your software
 
-TensorZero follows Calendar Versioning.
+Agentify Gateway currently follows the upstream Calendar Versioning scheme.
 Please update to the most recent version to apply the latest patches.
 
 ## Report a vulnerability

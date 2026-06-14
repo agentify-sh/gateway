@@ -1,13 +1,13 @@
 # Release Guide
 
-This guide documents the steps to release a new version of TensorZero.
+This guide documents the steps to release a new version of Agentify Gateway.
 
 You can inspect the Git SHA used to build a particular image tag with:
 `docker image inspect tensorzero/ui:latest | jq '.[0].Config.Labels["org.opencontainers.image.revision"]'`
 
 ## Versioning
 
-TensorZero follows [CalVer](https://calver.org/) for versioning.
+Agentify Gateway currently follows the upstream [CalVer](https://calver.org/) versioning scheme.
 The format is `YYYY.MM.PATCH` (e.g. `2025.01.0`, `2025.01.1`).
 
 > [!IMPORTANT]

@@ -1,286 +1,83 @@
-<p><picture><img src="https://github.com/user-attachments/assets/9d0a93c6-7685-4e57-9737-7cbeb338a218" alt="TensorZero Logo" width="128" height="128"></picture></p>
+# Agentify Gateway
 
-# TensorZero
+Agentify Gateway is a community-maintained project derived from the Apache-2.0 licensed TensorZero codebase.
+It provides an open-source LLM gateway, observability layer, evaluation tooling, optimization workflows, and experimentation primitives for production LLM applications.
 
 > [!IMPORTANT]
 >
-> This repository is the Agentify-maintained community fork of TensorZero.
-> The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
-> This fork preserves the Apache-2.0 licensed source history and upstream attribution while maintenance continues under `agentify-sh/gateway`.
+> This repository is maintained by Agentify at `agentify-sh/gateway`.
+> It is derived from the upstream `tensorzero/tensorzero` repository, which was archived on June 12, 2026 and is now read-only.
+> The TensorZero name, logo, and other marks belong to their respective owners; this fork uses the name only for attribution and compatibility context.
 
-**TensorZero is an open-source LLMOps platform that unifies:**
+## What It Includes
 
-- **Gateway:** access every LLM provider through a unified API, built for performance (<1ms p99 latency)
-- **Observability:** store inferences and feedback in your database, available programmatically or in the UI
-- **Evaluation:** benchmark individual inferences or end-to-end workflows using heuristics, LLM judges, etc.
-- **Optimization:** collect metrics and human feedback to optimize prompts, models, and inference strategies
-- **Experimentation:** ship with confidence with built-in A/B testing, routing, fallbacks, retries, etc.
+- **Gateway:** access major LLM providers through one OpenAI-compatible API.
+- **Observability:** store inferences and feedback in your own database.
+- **Evaluation:** benchmark individual inferences or end-to-end workflows.
+- **Optimization:** use production metrics and feedback to improve prompts, models, and inference strategies.
+- **Experimentation:** ship routing, fallbacks, retries, and A/B tests with explicit configuration.
 
-You can take what you need, adopt incrementally, and complement with other tools.
-It plays nicely with the **OpenAI SDK**, **OpenTelemetry**, and **every major LLM provider**.
+The codebase currently retains TensorZero protocol names, environment variables, package names, crate names, and model strings where changing them would be a breaking compatibility migration.
+Those names should be treated as compatibility surfaces, not as current project branding.
 
-Before archival, upstream reported TensorZero usage by companies ranging from frontier AI startups to the Fortune 10.
+## Links
 
-<br>
+- [Repository](https://github.com/agentify-sh/gateway)
+- [Issues](https://github.com/agentify-sh/gateway/issues)
+- [Security](SECURITY.md)
+- [Contributing](CONTRIBUTING.md)
+- [Maintainers](MAINTAINERS.md)
+- [Maintenance transition](MAINTENANCE.md)
+- [Quick Start](docs/quickstart.mdx)
+- [Deployment Guide](docs/deployment/tensorzero-gateway.mdx)
+- [Configuration Reference](docs/gateway/configuration-reference.mdx)
 
-<p align="center">
-  <b><a href="https://github.com/agentify-sh/gateway" target="_blank">Repository</a></b>
-  ·
-  <b><a href="https://github.com/agentify-sh/gateway/issues" target="_blank">Issues</a></b>
-  ·
-  <b><a href="https://github.com/agentify-sh/gateway/security" target="_blank">Security</a></b>
-  ·
-  <b><a href="https://www.tensorzero.com/docs" target="_blank">Upstream Docs</a></b>
-  <br>
-  <br>
-  <b><a href="docs/quickstart.mdx">Quick Start (5min)</a></b>
-  ·
-  <b><a href="docs/deployment/tensorzero-gateway.mdx">Deployment Guide</a></b>
-  ·
-  <b><a href="docs/gateway/api-reference/inference.mdx">API Reference</a></b>
-  ·
-  <b><a href="docs/gateway/configuration-reference.mdx">Configuration Reference</a></b>
-</p>
+## Usage Example
 
-## Demo
-
-<video src="https://github.com/user-attachments/assets/04a8466e-27d8-4189-b305-e7cecb6881ee"></video>
-
-## Features
-
-> [!NOTE]
->
-> ### 🆕 TensorZero Autopilot
->
-> TensorZero Autopilot was an upstream complementary service. This community fork does not currently operate or maintain the closed-source Autopilot service.
->
-> TensorZero Autopilot is an **automated AI engineer** powered by TensorZero that analyzes LLM observability data, sets up evals, optimizes prompts and models, and runs A/B tests.
->
-> It **dramatically improves the performance of LLM agents** across diverse tasks:
->
-> <img width="600" alt="Bar chart showing baseline vs. optimized scores across diverse LLM tasks" src="https://github.com/user-attachments/assets/aa474fe3-b55a-48aa-9f0d-e7c2f8e32ccd" />
-> <br>
->
-> **[Learn more →](https://www.tensorzero.com/blog/automated-ai-engineer/)**
-
-### 🌐 LLM Gateway
-
-> **Integrate with TensorZero once and access every major LLM provider.**
-
-- [x] **[Call any LLM](https://www.tensorzero.com/docs/gateway/call-any-llm)** (API or self-hosted) through a single unified API
-- [x] Infer with **[tool use](https://www.tensorzero.com/docs/gateway/guides/tool-use)**, **[structured outputs (JSON)](https://www.tensorzero.com/docs/gateway/generate-structured-outputs)**, **[batch](https://www.tensorzero.com/docs/gateway/guides/batch-inference)**, **[embeddings](https://www.tensorzero.com/docs/gateway/generate-embeddings)**, **[multimodal (images, files)](https://www.tensorzero.com/docs/gateway/call-llms-with-image-and-file-inputs)**, **[caching](https://www.tensorzero.com/docs/gateway/guides/inference-caching)**, etc.
-- [x] **[Create prompt templates and schemas](https://www.tensorzero.com/docs/gateway/create-a-prompt-template)** to enforce a structured interface between your application and the LLMs
-- [x] Satisfy extreme throughput and latency needs, thanks to 🦀 Rust: **[<1ms p99 latency overhead at 10k+ QPS](https://www.tensorzero.com/docs/gateway/benchmarks)**
-- [x] **[Ensure high availability](https://www.tensorzero.com/docs/gateway/guides/retries-fallbacks)** with routing, retries, fallbacks, load balancing, granular timeouts, etc.
-- [x] **[Track usage and cost](https://www.tensorzero.com/docs/operations/track-usage-and-cost)** and **[enforce custom rate limits](https://www.tensorzero.com/docs/operations/enforce-custom-rate-limits)** with granular scopes (e.g. tags)
-- [x] **[Set up auth for TensorZero](https://www.tensorzero.com/docs/operations/set-up-auth-for-tensorzero)** to allow clients to access models without sharing provider API keys
-
-#### Supported Model Providers
-
-**[Anthropic](https://www.tensorzero.com/docs/gateway/guides/providers/anthropic)**,
-**[AWS Bedrock](https://www.tensorzero.com/docs/gateway/guides/providers/aws-bedrock)**,
-**[AWS SageMaker](https://www.tensorzero.com/docs/gateway/guides/providers/aws-sagemaker)**,
-**[Azure](https://www.tensorzero.com/docs/gateway/guides/providers/azure)**,
-**[DeepSeek](https://www.tensorzero.com/docs/gateway/guides/providers/deepseek)**,
-**[Fireworks](https://www.tensorzero.com/docs/gateway/guides/providers/fireworks)**,
-**[GCP Vertex AI Anthropic](https://www.tensorzero.com/docs/gateway/guides/providers/gcp-vertex-ai-anthropic)**,
-**[GCP Vertex AI Gemini](https://www.tensorzero.com/docs/gateway/guides/providers/gcp-vertex-ai-gemini)**,
-**[Google AI Studio (Gemini API)](https://www.tensorzero.com/docs/gateway/guides/providers/google-ai-studio-gemini)**,
-**[Groq](https://www.tensorzero.com/docs/gateway/guides/providers/groq)**,
-**[Hyperbolic](https://www.tensorzero.com/docs/gateway/guides/providers/hyperbolic)**,
-**[Mistral](https://www.tensorzero.com/docs/gateway/guides/providers/mistral)**,
-**[OpenAI](https://www.tensorzero.com/docs/gateway/guides/providers/openai)**,
-**[OpenRouter](https://www.tensorzero.com/docs/gateway/guides/providers/openrouter)**,
-**[SGLang](https://www.tensorzero.com/docs/gateway/guides/providers/sglang)**,
-**[TGI](https://www.tensorzero.com/docs/gateway/guides/providers/tgi)**,
-**[Together AI](https://www.tensorzero.com/docs/gateway/guides/providers/together)**,
-**[vLLM](https://www.tensorzero.com/docs/gateway/guides/providers/vllm)**, and
-**[xAI (Grok)](https://www.tensorzero.com/docs/gateway/guides/providers/xai)**.
-
-Need something else? TensorZero also supports **[any OpenAI-compatible API (e.g. Ollama)](https://www.tensorzero.com/docs/gateway/guides/providers/openai-compatible)**.
-
-#### Usage Example
-
-You can use TensorZero with any OpenAI SDK (Python, Node, Go, etc.) or OpenAI-compatible client.
-
-1. **[Deploy the TensorZero Gateway](https://www.tensorzero.com/docs/deployment/tensorzero-gateway)** (one Docker container).
-2. Update the `base_url` and `model` in your OpenAI-compatible client.
-3. Run inference:
+You can use Agentify Gateway with OpenAI-compatible SDKs.
+The compatibility model strings still use the existing `tensorzero::...` prefix.
 
 ```python
 from openai import OpenAI
 
-# Point the client to the TensorZero Gateway
 client = OpenAI(base_url="http://localhost:3000/openai/v1", api_key="not-used")
 
 response = client.chat.completions.create(
-    # Call any model provider (or TensorZero function)
     model="tensorzero::model_name::anthropic::claude-sonnet-4-6",
     messages=[
         {
             "role": "user",
-            "content": "Share a fun fact about TensorZero.",
+            "content": "Share a useful fact about LLM gateways.",
         }
     ],
 )
 ```
 
-See **[Quick Start](https://www.tensorzero.com/docs/quickstart)** for more information.
+## Supported Provider Families
 
-### 🔍 LLM Observability
+The gateway includes integrations for Anthropic, AWS Bedrock, AWS SageMaker, Azure, DeepSeek, Fireworks, GCP Vertex AI, Google AI Studio, Groq, Hyperbolic, Mistral, OpenAI, OpenRouter, SGLang, TGI, Together AI, vLLM, xAI, and OpenAI-compatible APIs such as Ollama.
 
-> **Zoom in to debug individual API calls, or zoom out to monitor metrics across models and prompts over time &mdash; all using the open-source TensorZero UI.**
+See the local `docs/` directory for provider setup and configuration details.
 
-- [x] Store inferences and **[feedback (metrics, human edits, etc.)](https://www.tensorzero.com/docs/gateway/guides/metrics-feedback)** in your own database
-- [x] Dive into individual inferences or high-level aggregate patterns using the TensorZero UI or programmatically
-- [x] **[Build datasets](https://www.tensorzero.com/docs/gateway/api-reference/datasets-datapoints)** for optimization, evaluation, and other workflows
-- [x] Replay historical inferences with new prompts, models, inference strategies, etc.
-- [x] **[Export OpenTelemetry traces (OTLP)](https://www.tensorzero.com/docs/operations/export-opentelemetry-traces)** and **[export Prometheus metrics](https://www.tensorzero.com/docs/operations/export-prometheus-metrics)** to your favorite application observability tools
-- [ ] Soon: AI-assisted debugging and root cause analysis; AI-assisted data labeling
+## Maintenance Status
 
-### 📈 LLM Optimization
+Agentify is currently focused on conservative maintenance:
 
-> **Send production metrics and human feedback to easily optimize your prompts, models, and inference strategies &mdash; using the UI or programmatically.**
+- security fixes
+- provider compatibility fixes
+- build and CI continuity
+- documentation and example repairs
+- small, well-tested bug fixes
 
-- [x] Optimize your models with **[supervised fine-tuning](https://www.tensorzero.com/docs/optimization/supervised-fine-tuning-sft)**, RLHF, and other techniques
-- [x] Optimize your prompts with automated prompt engineering algorithms like **[GEPA](https://www.tensorzero.com/docs/optimization/gepa)**
-- [x] Optimize your **[inference strategy](https://www.tensorzero.com/docs/gateway/guides/inference-time-optimizations)** with **[dynamic in-context learning](https://www.tensorzero.com/docs/optimization/dynamic-in-context-learning-dicl)**, best/mixture-of-N sampling, etc.
-- [x] Enable a feedback loop for your LLMs: a data & learning flywheel turning production data into smarter, faster, and cheaper models
-- [ ] Soon: synthetic data generation
+Release publishing, package namespaces, Docker image names, and deeper runtime renames are being handled separately because they affect existing users and automation.
 
-### 📊 LLM Evaluation
+## Attribution
 
-> **Compare prompts, models, and inference strategies using evaluations powered by heuristics and LLM judges.**
+Agentify Gateway is derived from TensorZero and preserves the upstream Apache-2.0 license, source history, and attribution.
+Historical TensorZero documentation, blog posts, examples, package names, and protocol names may still appear where they are required for attribution, compatibility, or migration.
 
-- [x] **[Evaluate individual inferences](https://www.tensorzero.com/docs/evaluations/inference-evaluations/tutorial)** with _inference evaluations_ powered by heuristics or LLM judges (&approx; unit tests for LLMs)
-- [x] **[Evaluate end-to-end workflows](https://www.tensorzero.com/docs/evaluations/workflow-evaluations/tutorial)** with _workflow evaluations_ with complete flexibility (&approx; integration tests for LLMs)
-- [x] Optimize LLM judges just like any other TensorZero function to align them to human preferences
-- [ ] Soon: more built-in evaluators; headless evaluations
+Upstream project:
 
-<table>
-  <tr></tr> <!-- flip highlight order -->
-  <tr>
-    <td width="50%" align="center" valign="middle"><b>Evaluation » UI</b></td>
-    <td width="50%" align="center" valign="middle"><b>Evaluation » CLI</b></td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="middle"><img src="https://github.com/user-attachments/assets/f4bf54e3-1b63-46c8-be12-2eaabf615699"></td>
-    <td width="50%" align="left" valign="middle">
-<pre><code class="language-bash">docker compose run --rm evaluations \
-  --evaluation-name extract_data \
-  --dataset-name hard_test_cases \
-  --variant-name gpt_4o \
-  --concurrency 5</code></pre>
-<pre><code class="language-bash">Run ID: 01961de9-c8a4-7c60-ab8d-15491a9708e4
-Number of datapoints: 100
-██████████████████████████████████████ 100/100
-exact_match: 0.83 ± 0.03 (n=100)
-semantic_match: 0.98 ± 0.01 (n=100)
-item_count: 7.15 ± 0.39 (n=100)</code></pre>
-    </td>
-  </tr>
-</table>
-
-### 🧪 LLM Experimentation
-
-> **Ship with confidence with built-in A/B testing, routing, fallbacks, retries, etc.**
-
-- [x] **[Run adaptive A/B tests](https://www.tensorzero.com/docs/experimentation/run-adaptive-ab-tests)** to ship with confidence and identify the best prompts and models for your use cases.
-- [x] Enforce principled experiments in complex workflows, including support for multi-turn LLM systems, sequential testing, and more.
-
-### & more!
-
-> **Build with an open-source stack well-suited for prototypes but designed from the ground up to support the most complex LLM applications and deployments.**
-
-- [x] Build simple applications or massive deployments with GitOps-friendly orchestration
-- [x] **[Extend TensorZero](https://www.tensorzero.com/docs/operations/extend-tensorzero)** with built-in escape hatches, programmatic-first usage, direct database access, and more
-- [x] Integrate with third-party tools: specialized observability and evaluations, model providers, agent orchestration frameworks, etc.
-- [x] Iterate quickly by experimenting with prompts interactively using the Playground UI
-
-## Frequently Asked Questions
-
-**How is TensorZero different from other LLM frameworks?**
-
-1. TensorZero enables you to optimize complex LLM applications based on production metrics and human feedback.
-2. TensorZero supports the needs of industrial-grade LLM applications: low latency, high throughput, type safety, self-hosted, GitOps, customizability, etc.
-3. TensorZero unifies the entire LLMOps stack, creating compounding benefits. For example, LLM evaluations can be used for fine-tuning models alongside AI judges.
-
-**Can I use TensorZero with \_\_\_?**
-
-Yes.
-Every major programming language is supported.
-It plays nicely with the **OpenAI SDK**, **OpenTelemetry**, and **every major LLM provider**.
-
-**Is TensorZero production-ready?**
-
-Yes.
-Before archival, upstream reported TensorZero usage by companies ranging from frontier AI startups to the Fortune 10.
-
-Here's a case study: **[Automating Code Changelogs at a Large Bank with LLMs](https://www.tensorzero.com/blog/case-study-automating-code-changelogs-at-a-large-bank-with-llms)**
-
-**How much does TensorZero cost?**
-
-TensorZero (LLMOps platform) is 100% self-hosted and open-source.
-
-TensorZero Autopilot (automated AI engineer) is a complementary paid product powered by TensorZero.
-
-**Who is building TensorZero?**
-
-TensorZero was originally built by the upstream TensorZero team.
-This repository is now maintained as a community fork by Agentify.
-See [MAINTAINERS.md](MAINTAINERS.md) for the current maintenance model.
-
-**How do I get started?**
-
-You can adopt TensorZero incrementally. The **[Quick Start](docs/quickstart.mdx)** goes from a vanilla OpenAI wrapper to a production-ready LLM application with observability and fine-tuning in just 5 minutes.
-
-## Get Started
-
-**Start building today.**
-The **[Quick Start](docs/quickstart.mdx)** shows it's easy to set up an LLM application with TensorZero.
-
-**Questions?**
-Open a GitHub issue in this repository.
-
-**Using TensorZero at work?**
-See [SECURITY.md](SECURITY.md) for vulnerability reporting and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
-
-## Examples
-
-This repository includes **complete runnable examples** illustrating TensorZero's data & learning flywheel.
-
-> **[Optimizing Data Extraction (NER) with TensorZero](https://github.com/agentify-sh/gateway/tree/main/examples/data-extraction-ner)**
->
-> This example shows how to use TensorZero to optimize a data extraction pipeline.
-> We demonstrate techniques like fine-tuning and dynamic in-context learning (DICL).
-> In the end, an optimized GPT-4o Mini model outperforms GPT-4o on this task &mdash; at a fraction of the cost and latency &mdash; using a small amount of training data.
-
-> **[Agentic RAG — Multi-Hop Question Answering with LLMs](https://github.com/agentify-sh/gateway/tree/main/examples/rag-retrieval-augmented-generation/simple-agentic-rag/)**
->
-> This example shows how to build a multi-hop retrieval agent using TensorZero.
-> The agent iteratively searches Wikipedia to gather information, and decides when it has enough context to answer a complex question.
-
-> **[Writing Haikus to Satisfy a Judge with Hidden Preferences](https://github.com/agentify-sh/gateway/tree/main/examples/haiku-hidden-preferences)**
->
-> This example fine-tunes GPT-4o Mini to generate haikus tailored to a specific taste.
-> You'll see TensorZero's "data flywheel in a box" in action: better variants leads to better data, and better data leads to better variants.
-> You'll see progress by fine-tuning the LLM multiple times.
-
-> **[Image Data Extraction — Multimodal (Vision) Fine-tuning](https://github.com/agentify-sh/gateway/tree/main/examples/multimodal-vision-finetuning)**
->
-> This example shows how to fine-tune multimodal models (VLMs) like GPT-4o to improve their performance on vision-language tasks.
-> Specifically, we'll build a system that categorizes document images (screenshots of computer science research papers).
-
-> **[Improving LLM Chess Ability with Best-of-N Sampling](https://github.com/agentify-sh/gateway/tree/main/examples/chess-puzzles/)**
->
-> This example showcases how best-of-N sampling can significantly enhance an LLM's chess-playing abilities by selecting the most promising moves from multiple generated options.
-
-## Blog Posts
-
-The upstream TensorZero team wrote about LLM engineering on the **[TensorZero Blog](https://www.tensorzero.com/blog)**.
-Here are some of our favorite posts:
-
-- **[Bandits in your LLM Gateway: Improve LLM Applications Faster with Adaptive Experimentation (A/B Testing)](https://www.tensorzero.com/blog/bandits-in-your-llm-gateway/)**
-- **[Is OpenAI's Reinforcement Fine-Tuning (RFT) Worth It?](https://www.tensorzero.com/blog/is-openai-reinforcement-fine-tuning-rft-worth-it/)**
-- **[Distillation with Programmatic Data Curation: Smarter LLMs, 5-30x Cheaper Inference](https://www.tensorzero.com/blog/distillation-programmatic-data-curation-smarter-llms-5-30x-cheaper-inference/)**
-- **[From NER to Agents: Does Automated Prompt Engineering Scale to Complex Tasks?](https://www.tensorzero.com/blog/from-ner-to-agents-does-automated-prompt-engineering-scale-to-complex-tasks/)**
+- Repository: `tensorzero/tensorzero`
+- License: Apache-2.0
+- Archived: June 12, 2026

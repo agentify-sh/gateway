@@ -1,6 +1,6 @@
 # Maintainers
 
-This repository is the Agentify-maintained community fork of TensorZero.
+This repository is derived from the archived TensorZero project and maintained by Agentify.
 The upstream `tensorzero/tensorzero` repository was archived on June 12, 2026 and is now read-only.
 
 ## Current maintainers
@@ -16,6 +16,7 @@ The initial maintenance scope is intentionally conservative:
 - keep provider integrations compatible with current provider APIs
 - review community bug fixes and small compatibility improvements
 - preserve Apache-2.0 licensing, source history, and upstream attribution
+- keep TensorZero names only where they are needed for attribution or compatibility
 
 Large feature work, package renames, release namespace changes, and compatibility-breaking API changes should start with a GitHub issue before implementation.
 
